@@ -1,43 +1,43 @@
-< !DOCTYPE html>
-    <html lang="ko">
+<!DOCTYPE html>
+<html lang="ko">
 
-    <head>
-        <meta charset="UTF-8">
-        <title>🚀 예매 팝업</title>
-        <style>
-            body {
-                font-family: '맑은 고딕', sans-serif;
-                padding: 20px;
-                background-color: #fdfdfd;
-                color: #333;
-                line-height: 1.6;
-            }
+<head>
+	<meta charset="UTF-8">
+	<title>🚀 예매 팝업</title>
+	<style>
+		body {
+			font-family: '맑은 고딕', sans-serif;
+			padding: 20px;
+			background-color: #fdfdfd;
+			color: #333;
+			line-height: 1.6;
+		}
 
-            h2 {
-                color: #2c3e50;
-                font-size: 22px;
-                margin-bottom: 12px;
-            }
-        </style>
-		<script>
-			/**
-			* URL 파라미터로 전달된 title 적용
-			*/
-			(function setDynamicTitle() {
-				try {
-					const params = new URLSearchParams(window.location.search);
-					const title = params.get("triggerTitle");
-					if (title) {
-						document.title = decodeURIComponent(title);
-					}
-				} catch (err) {
+		h2 {
+			color: #2c3e50;
+			font-size: 22px;
+			margin-bottom: 12px;
+		}
+	</style>
+	<script>
+		/**
+		* URL 파라미터로 전달된 title 적용
+		*/
+		(function setDynamicTitle() {
+			try {
+				const params = new URLSearchParams(window.location.search);
+				const title = params.get("triggerTitle");
+				if (title) {
+					document.title = decodeURIComponent(title);
 				}
-			})();
-		</script>
-    </head>
+			} catch (err) {
+			}
+		})();
+	</script>
+</head>
 
-    <body>
-        <h2>🙋 잠시만 기다려주세요. 곧 예매가 시작됩니다.</h2>
-    </body>
+<body>
+	<h2>🙋 잠시만 기다려주세요. 곧 예매가 시작됩니다.</h2>
+</body>
 
-    </html>
+</html>
