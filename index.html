@@ -36,13 +36,11 @@
 		}
 	</style>
 	<script>
-		/**
-		* URL 파라미터로 전달된 title 적용
-		*/
-		(function setDynamicTitle() {
+		document.addEventListener("DOMContentLoaded", function () {
 			try {
 				const params = new URLSearchParams(window.location.search);
 				const title = params.get("triggerTitle");
+
 				if (!title) return;
 
 				const decodedTitle = decodeURIComponent(title);
@@ -69,8 +67,9 @@
 					msgEl.textContent = waitMsg;
 				}
 			} catch (err) {
+				console.error("waitMsg 처리 오류", err);
 			}
-		})();
+		});
 	</script>
 </head>
 
