@@ -43,8 +43,30 @@
 			try {
 				const params = new URLSearchParams(window.location.search);
 				const title = params.get("triggerTitle");
-				if (title) {
-					document.title = decodeURIComponent(title);
+				if (!title) return;
+
+				const decodedTitle = decodeURIComponent(title);
+				document.title = decodedTitle;
+
+				let waitMsg = "";
+				switch (true) {
+					case decodedTitle.includes("인티"):
+						waitMsg = "🚀 인티 예매 대기중...";
+						break;
+					case decodedTitle.includes("멜티"):
+						waitMsg = "🚀 멜티 예매 대기중...";
+						break;
+					case decodedTitle.includes("예사"):
+						waitMsg = "🚀 예사 예매 대기중...";
+						break;
+					case decodedTitle.includes("링크"):
+						waitMsg = "🚀 링크 예매 대기중...";
+						break;
+				}
+
+				const msgEl = document.getElementById("waitMsg");
+				if (msgEl) {
+					msgEl.textContent = waitMsg;
 				}
 			} catch (err) {
 			}
@@ -53,6 +75,7 @@
 </head>
 
 <body>
+	<h3 id="waitMsg"></h3>    
 	<h3>🌏 키보드 입력이 영문인지 확인하세요. <input type="text" placeholder="확인하세요." style="width:240px; height:25px; margin-left:10px; vertical-align:middle; "/></h3>    
     <h3>⚡ 티켓링크는 <b style="color:red;">1</b>번키를 누르면 캡차가 자동 입력돼요.</h3>
 	<h3>🖲️ <b style="color:red;">`</b>키를 눌러 단축키 활성화하고, <b style="color:red;">E</b>키로 확대/축소되는지 확인하세요.</h3>
