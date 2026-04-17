@@ -48,15 +48,22 @@
 
 				let waitMsg = "";
 				switch (true) {
+					case decodedTitle.includes("놀"):
+						waitMsg = "🚀 놀 예매 대기중...";
+						break;
+						
 					case decodedTitle.includes("인티"):
 						waitMsg = "🚀 인티 예매 대기중...";
 						break;
+						
 					case decodedTitle.includes("멜티"):
 						waitMsg = "🚀 멜티 예매 대기중...";
 						break;
+						
 					case decodedTitle.includes("예사"):
 						waitMsg = "🚀 예사 예매 대기중...";
 						break;
+						
 					case decodedTitle.includes("링크"):
 						waitMsg = "🚀 링크 예매 대기중...";
 						document.getElementById("linkCaptcha").style.display = "";
